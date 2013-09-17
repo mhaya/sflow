@@ -15,7 +15,7 @@ Output Format:
 (1)CNTR,(2)unixSecondsUTC,(3)agent,(4)sampleType_tag,(5)sampleType,(6)sampleSequenceNo,(7)sourceId,(8)statsSamplingInterval,(9)counterBlockVersion,(10)ifIndex,(11)networkType,(12)ifSpeed,(13)ifDirection,(14)ifStatus,(15)ifInOctets,(16)ifInUcastPkts,(17)ifInMulticastPkts,(18)ifInBroadcastPkts,(19)ifInDiscards,(20)ifInErrors,(21)ifInUnknownProtos,(22)ifOutOctets,(23)ifOutUcastPkts,(24)ifOutMulticastPkts,(25)ifOutBroadcastPkts,(26)ifOutDiscards,(27)ifOutErrors,(28)ifPromiscuousMode
 
 example:
-$ ./sflowtool | perl sFlowToolParser.pl|awk -F',' '$3=="192.168.0.6"&&$7=="0:2"{print "rrdtool update traffic.rrd "$2":"$15":"$22}
+$ ./sflowtool | perl sFlowToolParser.pl | grep CNTR | awk -F',' '$3=="192.168.0.6"&&$7=="0:2"{print "rrdtool update traffic.rrd "$2":"$15":"$22}
 
 
 2. FLOW SAMPLE Format(L2):
