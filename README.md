@@ -1,6 +1,6 @@
 About:
 
-sFlowToolParser.pl is a perl script for the InMon sFlowToolkit(http://www.inmon.com/technology/sflowTools.php). It converts the sflowtool output format into a CSV format which is more detailed than the default line-by-line format.
+"sFlowToolParser.pl" is a perl script for the InMon sFlowToolkit(http://www.inmon.com/technology/sflowTools.php). It converts the sflowtool output format into a CSV format which is more detailed than the default line-by-line format.
 
 How to use:
 
