@@ -87,8 +87,12 @@ sub process{
 
 	my $ifPromiscuousMode = $sflow->{'ifPromiscuousMode'} ? $sflow->{'ifPromiscuousMode'} : 0;
 
-	print "CNTR,$unixSecondsUTC,$agent,$sampleType_tag,$sampleType,$sampleSequenceNo,$sourceId,$statsSamplingInterval,$counterBlockVersion,$ifIndex,$networkType,$ifSpeed,$ifDirection,$ifStatus,$ifInOctets,$ifInUcastPkts,$ifInMulticastPkts,$ifInBroadcastPkts,$ifInDiscards,$ifInErrors,$ifInUnknownProtos,$ifOutOctets,$ifOutUcastPkts,$ifOutMulticastPkts,$ifOutBroadcastPkts,$ifOutDiscards,$ifOutErrors,$ifPromiscuousMode\n";
-    }	
+#	print "CNTR,$unixSecondsUTC,$agent,$sampleType_tag,$sampleType,$sampleSequenceNo,$sourceId,$statsSamplingInterval,$counterBlockVersion,$ifIndex,$networkType,$ifSpeed,$ifDirection,$ifStatus,$ifInOctets,$ifInUcastPkts,$ifInMulticastPkts,$ifInBroadcastPkts,$ifInDiscards,$ifInErrors,$ifInUnknownProtos,$ifOutOctets,$ifOutUcastPkts,$ifOutMulticastPkts,$ifOutBroadcastPkts,$ifOutDiscards,$ifOutErrors,$ifPromiscuousMode\n";
+ 
+	print "CNTR $unixSecondsUTC $agent $sampleType_tag $sampleType $sampleSequenceNo $sourceId $statsSamplingInterval $counterBlockVersion $ifIndex $networkType $ifSpeed $ifDirection $ifStatus $ifInOctets $ifInUcastPkts $ifInMulticastPkts $ifInBroadcastPkts $ifInDiscards $ifInErrors $ifInUnknownProtos $ifOutOctets $ifOutUcastPkts $ifOutMulticastPkts $ifOutBroadcastPkts $ifOutDiscards $ifOutErrors $ifPromiscuousMode\n";
+ 
+
+   }	
 
     if($sampleType eq "FLOWSAMPLE"){
 	my $meanSkipCount = $sflow->{'meanSkipCount'} ? $sflow->{'meanSkipCount'} : 0;
@@ -110,7 +114,9 @@ sub process{
 	my $decodedVLAN = $sflow->{'decodedVLAN'} ? $sflow->{'decodedVLAN'}:0;
 
 
-	print "L2,$unixSecondsUTC,$agent,$sourceId,$packetSequenceNo,$sampleSequenceNo,$samplesInPacket,$meanSkipCount,$samplePool,$dropEvents,$inputPort,$outputPort,$flowSampleType,$headerProtocol,$sampledPacketSize,$headerLen,$srcMAC,$dstMAC,$decodedVLAN\n";
+#	print "L2,$unixSecondsUTC,$agent,$sourceId,$packetSequenceNo,$sampleSequenceNo,$samplesInPacket,$meanSkipCount,$samplePool,$dropEvents,$inputPort,$outputPort,$flowSampleType,$headerProtocol,$sampledPacketSize,$headerLen,$srcMAC,$dstMAC,$decodedVLAN\n";
+	print "L2 $unixSecondsUTC $agent $sourceId $packetSequenceNo $sampleSequenceNo $samplesInPacket $meanSkipCount $samplePool $dropEvents $inputPort $outputPort $flowSampleType $headerProtocol $sampledPacketSize $headerLen $srcMAC $dstMAC $decodedVLAN\n";
+
 
 	if($sflow->{'IPProtocol'}){
 	    my $IPSize = $sflow->{'IPSize'} ? $sflow->{'IPSize'}:0;
@@ -137,7 +143,8 @@ sub process{
 		    $srcP= $sflow->{'UDPSrcPort'};
                     $dstP= $sflow->{'UDPDstPort'};
 		}
-		print "L3,$unixSecondsUTC,$agent,$sourceId,$packetSequenceNo,$sampleSequenceNo,$samplesInPacket,$meanSkipCount,$samplePool,$dropEvents,$inputPort,$outputPort,$flowSampleType,$headerProtocol,$sampledPacketSize,$headerLen,$srcMAC,$dstMAC,$decodedVLAN,$IPProtocol,$src,$dst,$srcP,$dstP\n";
+#		print "L3,$unixSecondsUTC,$agent,$sourceId,$packetSequenceNo,$sampleSequenceNo,$samplesInPacket,$meanSkipCount,$samplePool,$dropEvents,$inputPort,$outputPort,$flowSampleType,$headerProtocol,$sampledPacketSize,$headerLen,$srcMAC,$dstMAC,$decodedVLAN,$IPProtocol,$src,$dst,$srcP,$dstP\n";
+		print "L3 $unixSecondsUTC $agent $sourceId $packetSequenceNo $sampleSequenceNo $samplesInPacket $meanSkipCount $samplePool $dropEvents $inputPort $outputPort $flowSampleType $headerProtocol $sampledPacketSize $headerLen $srcMAC $dstMAC $decodedVLAN $IPProtocol $src $dst $srcP $dstP\n";
 	    }
 
 	}
